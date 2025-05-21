@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>2 LOST REVENGERS</title>
+<title>2LR Forum</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap');
 
@@ -52,8 +52,8 @@
     flex: 1;
     padding: 2rem 1rem 4rem;
     display: flex;
-    justify-content: center;
-    align-items: flex-start;
+    flex-direction: column;
+    align-items: center;
   }
 
   .social-container {
@@ -64,6 +64,7 @@
     animation: fadeIn 1.4s ease forwards;
     opacity: 0;
     max-width: 650px;
+    margin-bottom: 3rem;
   }
 
   .social-card {
@@ -102,6 +103,31 @@
     font-weight: 600;
     font-size: 1rem;
     user-select: none;
+  }
+
+  .profile-section {
+    text-align: center;
+    margin-top: 2rem;
+  }
+
+  .profile-section img {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    margin-bottom: 1rem;
+  }
+
+  .profile-section h2 {
+    font-weight: 600;
+    font-size: 2rem;
+    color: #eee;
+  }
+
+  .profile-section p {
+    font-weight: 300;
+    font-size: 1.2rem;
+    color: #d1d1d1;
   }
 
   footer {
@@ -187,6 +213,12 @@
       <span>Saweria</span>
     </a>
   </div>
+
+  <div class="profile-section">
+    <img src="https://cdn.discordapp.com/avatars/698594147619307535/539c1dcd702a0a6bf070b781278c6038?size=1024" alt="Profile Picture">
+    <h2>0kkDer</h2>
+    <p>The Developer</p>
+  </div>
 </main>
 <footer>
   &copy; 2025 0kkDer. All rights reserved.
@@ -208,3 +240,4 @@
 </script>
 </body>
 </html>
+
