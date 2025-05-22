@@ -1,243 +1,246 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>2LR Forum</title>
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap');
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>2LR Forum</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap');
 
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-  body {
-    font-family: 'Poppins', sans-serif;
-    background: #121212;
-    color: #eee;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-  }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #121212;
+            color: #eee;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
 
-  header {
-    text-align: center;
-    padding: 3rem 1rem 2rem;
-    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
-    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
-  }
+        header {
+            text-align: center;
+            padding: 3rem 1rem 2rem;
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
+        }
 
-  header h1 {
-    font-weight: 600;
-    font-size: 3rem;
-    margin-bottom: 0.5rem;
-    animation: fadeInDown 1s ease forwards;
-    opacity: 0;
-  }
+        header h1 {
+            font-weight: 600;
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            animation: fadeInDown 1s ease forwards;
+            opacity: 0;
+        }
 
-  header p {
-    font-weight: 300;
-    font-size: 1.2rem;
-    color: #d1d1d1;
-    max-width: 400px;
-    margin: 0 auto;
-    animation: fadeInUp 1s ease forwards;
-    animation-delay: 0.3s;
-    opacity: 0;
-  }
+        header p {
+            font-weight: 300;
+            font-size: 1.2rem;
+            color: #d1d1d1;
+            max-width: 400px;
+            margin: 0 auto;
+            animation: fadeInUp 1s ease forwards;
+            animation-delay: 0.3s;
+            opacity: 0;
+        }
 
-  main {
-    flex: 1;
-    padding: 2rem 1rem 4rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+        main {
+            flex: 1;
+            padding: 2rem 1rem 4rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
 
-  .social-container {
-    display: flex;
-    gap: 2.5rem;
-    flex-wrap: wrap;
-    justify-content: center;
-    animation: fadeIn 1.4s ease forwards;
-    opacity: 0;
-    max-width: 650px;
-    margin-bottom: 3rem;
-  }
+        .social-container {
+            display: flex;
+            gap: 2.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            animation: fadeIn 1.4s ease forwards;
+            opacity: 0;
+            max-width: 650px;
+            margin-bottom: 3rem;
+        }
 
-  .social-card {
-    background: #1e1e1e;
-    border-radius: 12px;
-    width: 120px;
-    height: 120px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
-    color: #eee;
-    box-shadow: 0 8px 16px rgb(37 117 252 / 0.5);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
+        .social-card {
+            background: #1e1e1e;
+            border-radius: 12px;
+            width: 120px;
+            height: 120px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            color: #eee;
+            box-shadow: 0 8px 16px rgb(37 117 252 / 0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
 
-  .social-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 12px 24px rgb(101 67 255 / 0.8);
-  }
+        .social-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 24px rgb(101 67 255 / 0.8);
+        }
 
-  .social-card svg {
-    width: 42px;
-    height: 42px;
-    margin-bottom: 10px;
-    fill: #6a11cb;
-    transition: fill 0.3s ease;
-  }
+        .social-card svg {
+            width: 42px;
+            height: 42px;
+            margin-bottom: 10px;
+            fill: #6a11cb;
+            transition: fill 0.3s ease;
+        }
 
-  .social-card:hover svg {
-    fill: #2575fc;
-  }
+        .social-card:hover svg {
+            fill: #2575fc;
+        }
 
-  .social-card span {
-    font-weight: 600;
-    font-size: 1rem;
-    user-select: none;
-  }
+        .social-card span {
+            font-weight: 600;
+            font-size: 1rem;
+            user-select: none;
+        }
 
-  .profile-section {
-    text-align: center;
-    margin-top: 2rem;
-  }
+        .profile-section {
+            text-align: center;
+            margin-top: 2rem;
+            opacity: 0; /* Start hidden */
+            transform: translateY(20px); /* Start slightly below */
+            animation: fadeInUp 1s ease forwards; /* Animation */
+            animation-delay: 0.5s; /* Delay for effect */
+        }
 
-  .profile-section img {
-    border-radius: 50%;
-    width: 150px;
-    height: 150px;
-    object-fit: cover;
-    margin-bottom: 1rem;
-  }
+        .profile-section img {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            margin-bottom: 1rem;
+        }
 
-  .profile-section h2 {
-    font-weight: 600;
-    font-size: 2rem;
-    color: #eee;
-  }
+        .profile-section h2 {
+            font-weight: 600;
+            font-size: 2rem;
+            color: #eee;
+        }
 
-  .profile-section p {
-    font-weight: 300;
-    font-size: 1.2rem;
-    color: #d1d1d1;
-  }
+        .profile-section p {
+            font-weight: 300;
+            font-size: 1.2rem;
+            color: #d1d1d1;
+        }
 
-  footer {
-    text-align: center;
-    padding: 1rem;
-    background: #222;
-    color: #aaa;
-    font-size: 0.9rem;
-  }
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background: #222;
+            color: #aaa;
+            font-size: 0.9rem;
+        }
 
-  /* Animations */
-  @keyframes fadeInDown {
-    from {
-      opacity: 0;
-      transform: translateY(-20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
-  @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
-  @keyframes fadeIn {
-    to {
-      opacity: 1;
-    }
-  }
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
 
-  @media (max-width: 480px) {
-    header h1 {
-      font-size: 2.2rem;
-    }
-    header p {
-      font-size: 1rem;
-    }
-    .social-card {
-      width: 100px;
-      height: 100px;
-    }
-    .social-card svg {
-      width: 36px;
-      height: 36px;
-    }
-  }
-</style>
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 2.2rem;
+            }
+            header p {
+                font-size: 1rem;
+            }
+            .social-card {
+                width: 100px;
+                height: 100px;
+            }
+            .social-card svg {
+                width: 36px;
+                height: 36px;
+            }
+        }
+    </style>
 </head>
 <body>
-<header>
-  <h1>2LR Forum</h1>
-  <p>The greatest creator that we work for.</p>
-</header>
-<main>
-  <div class="social-container" aria-label="Social Media Links">
-    <a href="https://www.youtube.com/@0kkDer" target="_blank" rel="noopener noreferrer" class="social-card" aria-label="YouTube">
-      <svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>YouTube</title><path d="M23.498 6.186a2.972 2.972 0 0 0-2.092-2.105C19.664 3.6 12 3.6 12 3.6s-7.665 0-9.406.482A2.973 2.973 0 0 0 .506 6.186a31.197 31.197 0 0 0-.506 5.753 31.2 31.2 0 0 0 .506 5.753 2.973 2.973 0 0 0 2.089 2.106c1.743.48 9.405.48 9.405.48s7.665 0 9.406-.48a2.973 2.973 0 0 0 2.092-2.106 31.2 31.2 0 0 0 .506-5.753 31.197 31.197 0 0 0-.506-5.753zM9.75 15.5v-7l6 3.5-6 3.5z"/></svg>
-      <span>YouTube</span>
-    </a>
-    <a href="https://www.bing.com/ck/a?!&&p=8ed1c694c681f4aae595aea3c84169dfd6db7ec8abc4af2a4736cbfb8bba2d43JmltdHM9MTc0Nzc4NTYwMA&ptn=3&ver=2&hsh=4&fclid=1b0e99e9-e935-6b17-02db-8c19e8706a92&psq=radennkda&u=a1aHR0cHM6Ly93d3cuaW5zdGFncmFtLmNvbS9yYWRlbm5rZGEv&ntb=1" target="_blank" rel="noopener noreferrer" class="social-card" aria-label="Instagram">
-      <svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>Instagram</title><path d="M7.75 2A5.75 5.75 0 0 0 2 7.75v8.5A5.75 5.75 0 0 0 7.75 22h8.5A5.75 5.75 0 0 0 22 16.25v-8.5A5.75 5.75 0 0 0 16.25 2h-8.5zm0 2h8.5A3.75 3.75 0 0 1 20 7.75v8.5a3.75 3.75 0 0 1-3.75 3.75h-8.5A3.75 3.75 0 0 1 4 16.25v-8.5A3.75 3.75 0 0 1 7.75 4zm4.25 3a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 2a3 3 0 1 1 0 6 3 3 0 0 1 0-6zm4.5-.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/></svg>
-      <span>Instagram</span>
-    </a>
-    <a href="https://discord.gg/v275wcfdsp" target="_blank" rel="noopener noreferrer" class="social-card" aria-label="Discord">
-      <svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>Discord</title><path d="M20.317 4.3698a19.7913 19.7913 0 0 0-4.8851-1.5152.0741.0741 0 0 0-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 0 0-.0785-.037 19.7363 19.7363 0 0 0-4.8852 1.515.0699.0699 0 0 0-.0321.0277C2.5336 9.0458 1.873 13.5799 2.298 18.0578a.0824.0824 0 0 0 .0312.0561 19.9 19.9 0 0 0 5.9937 3.0341.0777.0777 0 0 0 .0842-.0276c.4626-.6304.8731-1.2952 1.226-1.9942a.076.076 0 0 0-.0416-.1057 13.0426 13.0426 0 0 1-1.872-.8997.077.077 0 0 1-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 0 1 .0786-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 0 1 .0814.0095c.1192.099.246.1981.372.2924a.0766.0766 0 0 1-.0064.1276 12.84 12.84 0 0 1-1.873.8998.0766.0766 0 0 0-.0407.106c.3604.698.7709 1.3628 1.225 1.9932a.076.076 0 0 0 .0842.028 19.8768 19.8768 0 0 0 6.001-3.037.0822.0822 0 0 0 .0305-.0559c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 0 0-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189Zm7.9748 0c-1.1824 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9544-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z"/></svg>
-      <span>Discord</span>
-    </a>
-    <a href="https://www.tiktok.com/@0kkder" target="_blank" rel="noopener noreferrer" class="social-card" aria-label="TikTok">
-      <svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>TikTok</title><path d="M9.75 2v5.687a4.5 4.5 0 1 0 4.5 4.5V7.5a9 9 0 1 1-4.5-5.5z"/></svg>
-      <span>TikTok</span>
-    </a>
-    <a href="https://saweria.co/0kkDer" target="_blank" rel="noopener noreferrer" class="social-card" aria-label="Saweria">
-      <svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>Saweria</title><circle cx="12" cy="12" r="10" fill="#6a11cb"/><text x="12" y="16" font-size="10" fill="#fff" text-anchor="middle" font-family="Poppins, sans-serif" font-weight="600">S</text></svg>
-      <span>Saweria</span>
-    </a>
-  </div>
+    <header>
+        <h1>2LR Forum</h1>
+        <p>The greatest creator that we work for.</p>
+    </header>
+    <main>
+        <div class="social-container" aria-label="Social Media Links">
+            <a href="https://www.youtube.com/@0kkDer" target="_blank" rel="noopener noreferrer" class="social-card" aria-label="YouTube">
+                <svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>YouTube</title><path d="M23.498 6.186a2.972 2.972 0 0 0-2.092-2.105C19.664 3.6 12 3.6 12 3.6s-7.665 0-9.406.482A2.973 2.973 0 0 0 .506 6.186a31.197 31.197 0 0 0-.506 5.753 31.2 31.2 0 0 0 .506 5.753 2.973 2.973 0 0 0 2.089 2.106c1.743.48 9.405.48 9.405.48s7.665 0 9.406-.48a2.973 2.973 0 0 0 2.092-2.106 31.2 31.2 0 0 0 .506-5.753 31.197 31.197 0 0 0-.506-5.753zM9.75 15.5v-7l6 3.5-6 3.5z"/></svg>
+                <span>YouTube</span>
+            </a>
+            <a href="https://www.bing.com/ck/a?!&&p=8ed1c694c681f4aae595aea3c84169dfd6db7ec8abc4af2a4736cbfb8bba2d43JmltdHM9MTc0Nzc4NTYwMA&ptn=3&ver=2&hsh=4&fclid=1b0e99e9-e935-6b17-02db-8c19e8706a92&psq=radennkda&u=a1aHR0cHM6Ly93d3cuaW5zdGFncmFtLmNvbS9yYWRlbm5rZGEv&ntb=1" target="_blank" rel="noopener noreferrer" class="social-card" aria-label="Instagram">
+                <svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>Instagram</title><path d="M7.75 2A5.75 5.75 0 0 0 2 7.75v8.5A5.75 5.75 0 0 0 7.75 22h8.5A5.75 5.75 0 0 0 22 16.25v-8.5A5.75 5.75 0 0 0 16.25 2h-8.5zm0 2h8.5A3.75 3.75 0 0 1 20 7.75v8.5a3.75 3.75 0 0 1-3.75 3.75h-8.5A3.75 3.75 0 0 1 4 16.25v-8.5A3.75 3.75 0 0 1 7.75 4zm4.25 3a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 2a3 3 0 1 1 0 6 3 3 0 0 1 0-6zm4.5-.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/></svg>
+                <span>Instagram</span>
+            </a>
+            <a href="https://discord.gg/v275wcfdsp" target="_blank" rel="noopener noreferrer" class="social-card" aria-label="Discord">
+                <svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>Discord</title><path d="M20.317 4.3698a19.7913 19.7913 0 0 0-4.8851-1.5152.0741.0741 0 0 0-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 0 0-.0785-.037 19.7363 19.7363 0 0 0-4.8852 1.515.0699.0699 0 0 0-.0321.0277C2.5336 9.0458 1.873 13.5799 2.298 18.0578a.0824.0824 0 0 0 .0312.0561 19.9 19.9 0 0 0 5.9937 3.0341.0777.0777 0 0 0 .0842-.0276c.4626-.6304.8731-1.2952 1.226-1.9942a.076.076 0 0 0-.0416-.1057 13.0426 13.0426 0 0 1-1.872-.8997.077.077 0 0 1-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 0 1 .0786-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 0 1 .0814.0095c.1192.099.246.1981.372.2924a.0766.0766 0 0 1-.0064.1276 12.84 12.84 0 0 1-1.873.8998.0766.0766 0 0 0-.0407.106c.3604.698.7709 1.3628 1.225 1.9932a.076.076 0 0 0 .0842.028 19.8768 19.8768 0 0 0 6.001-3.037.0822.0822 0 0 0 .0305-.0559c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 0 0-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189Zm7.9748 0c-1.1824 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9544-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z"/></svg>
+                <span>Discord</span>
+            </a>
+            <a href="https://www.tiktok.com/@0kkder" target="_blank" rel="noopener noreferrer" class="social-card" aria-label="TikTok">
+                <svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>TikTok</title><path d="M9.75 2v5.687a4.5 4.5 0 1 0 4.5 4.5V7.5a9 9 0 1 1-4.5-5.5z"/></svg>
+                <span>TikTok</span>
+            </a>
+            <a href="https://saweria.co/0kkDer" target="_blank" rel="noopener noreferrer" class="social-card" aria-label="Saweria">
+                <svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>Saweria</title><circle cx="12" cy="12" r="10" fill="#6a11cb"/><text x="12" y="16" font-size="10" fill="#fff" text-anchor="middle" font-family="Poppins, sans-serif" font-weight="600">S</text></svg>
+                <span>Saweria</span>
+            </a>
+        </div>
 
-  <div class="profile-section">
-    <img src="https://cdn.discordapp.com/avatars/698594147619307535/539c1dcd702a0a6bf070b781278c6038?size=1024" alt="Profile Picture">
-    <h2>0kkDer</h2>
-    <p>The Developer</p>
-  </div>
-</main>
-<footer>
-  &copy; 2025 0kkDer. All rights reserved.
-</footer>
-<script>
-  // Simple fade-in animation on page load for each social card
-  window.addEventListener('DOMContentLoaded', () => {
-    const cards = document.querySelectorAll('.social-card');
-    cards.forEach((card, index) => {
-      card.style.opacity = 0;
-      card.style.transform = 'translateY(20px)';
-      setTimeout(() => {
-        card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-        card.style.opacity = '1';
-        card.style.transform = 'translateY(0)';
-      }, 200 * index + 500);
-    });
-  });
-</script>
+        <div class="profile-section">
+            <img src="https://cdn.discordapp.com/avatars/698594147619307535/539c1dcd702a0a6bf070b781278c6038?size=1024" alt="Profile Picture">
+            <h2>0kkDer</h2>
+            <p>The Developer</p>
+        </div>
+    </main>
+    <footer>
+        &copy; 2025 0kkDer. All rights reserved.
+    </footer>
+    <script>
+        // Simple fade-in animation on page load for each social card
+        window.addEventListener('DOMContentLoaded', () => {
+            const cards = document.querySelectorAll('.social-card');
+            cards.forEach((card, index) => {
+                card.style.opacity = 0;
+                card.style.transform = 'translateY(20px)';
+                setTimeout(() => {
+                    card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, 200 * index + 500);
+            });
+        });
+    </script>
 </body>
 </html>
-
