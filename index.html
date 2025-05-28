@@ -20,7 +20,6 @@
             min-height: 100vh;
             display: flex;
             flex-direction: column;
-            /* Removed overflow: hidden; to allow scrolling */
         }
 
         /* Header Styles */
@@ -107,13 +106,19 @@
         .profile-section {
             text-align: center;
             margin-top: 2rem;
+            display: flex;
+            justify-content: center;
+            gap: 2rem; /* Space between profiles */
+        }
+
+        .profile {
             opacity: 0; /* Start hidden */
             transform: translateY(20px); /* Start slightly below */
             animation: fadeInUp 1s ease forwards; /* Animation for profile section */
             animation-delay: 0.8s; /* Delay for effect */
         }
 
-        .profile-section img {
+        .profile img {
             border-radius: 50%;
             width: 150px;
             height: 150px;
@@ -121,15 +126,15 @@
             margin-bottom: 1rem;
         }
 
-        .profile-section h2 {
+        .profile h2 {
             font-weight: 600;
-            font-size: 2rem;
+            font-size: 1.5rem;
             color: #eee;
         }
 
-        .profile-section p {
+        .profile p {
             font-weight: 300;
-            font-size: 1.2rem;
+            font-size: 1rem;
             color: #d1d1d1;
         }
 
@@ -186,6 +191,10 @@
                 width: 36px;
                 height: 36px;
             }
+            .profile {
+                flex-direction: column; /* Stack profiles on smaller screens */
+                align-items: center;
+            }
         }
     </style>
 </head>
@@ -209,7 +218,7 @@
                 <span>Discord</span>
             </a>
             <a href="https://www.tiktok.com" target="_blank" rel="noopener noreferrer" class="social-card" aria-label="TikTok">
-                <svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>TikTok</title><path d="M9.5 2v5.5a4.5 4.5 0 0 0 4.5 4.5V7.5a9 9 0 0 1-4.5-5.5zM12 12a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 2a3 3 0 1 1 0 6 3 3 0 0 1 0-6zM15 2.5a1 1 0 0 1 1 1v5.5a4.5 4.5 0 0 0 4.5 4.5V7.5a9 9 0 0 1-4.5-5.5z"/></svg>
+                <svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>TikTok</title><path d="M9.5 2v5.5a4.5 4.5 0 0 0 4.5 4.5V7.5a9 9 0 0 1-4.5-5.5zM12 12a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 2a3 3 0 1 1 0 6 3 3 0 0 1 0-6zm15 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/></svg>
                 <span>TikTok</span>
             </a>
             <a href="https://saweria.co" target="_blank" rel="noopener noreferrer" class="social-card" aria-label="Saweria">
@@ -219,9 +228,16 @@
         </div>
 
         <div class="profile-section">
-            <img src="https://cdn.discordapp.com/avatars/698594147619307535/539c1dcd702a0a6bf070b781278c6038?size=1024" alt="Profile picture of 0kkDer, the Developer">
-            <h2>0kkDer</h2>
-            <p>The Developer</p>
+            <div class="profile">
+                <img src="https://cdn.discordapp.com/avatars/698594147619307535/539c1dcd702a0a6bf070b781278c6038?size=1024" alt="Profile picture of 0kkDer, the Developer">
+                <h2>0kkDer</h2>
+                <p>Developer</p>
+            </div>
+            <div class="profile">
+                <img src="https://i.pinimg.com/736x/b2/a1/35/b2a1350cfb9c91b669da94de705005f6.jpg" alt="Profile picture of Ibam, the Tester">
+                <h2>Ibam</h2>
+                <p>Tester</p>
+            </div>
         </div>
     </main>
     <footer>
