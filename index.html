@@ -108,10 +108,11 @@
     .profiles {
       margin-top: 3rem;
       width: 100%;
-      overflow-x: auto;
       display: flex;
+      justify-content: center; /* default di tengah */
       gap: 1.5rem;
       padding: 1rem;
+      overflow-x: auto; /* bisa geser kiri kanan */
       scroll-snap-type: x mandatory;
     }
     .profile-card {
@@ -122,7 +123,7 @@
       padding: 1.2rem;
       text-align: center;
       box-shadow: 0 6px 15px rgba(0,0,0,0.2);
-      scroll-snap-align: start;
+      scroll-snap-align: center; /* snap ke tengah */
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
     .profile-card:hover {
@@ -222,5 +223,15 @@
   <footer>
     &copy; 2025 2 Lost Revengers. All rights reserved.
   </footer>
+
+  <script>
+    // Auto scroll ke tengah pas load
+    window.addEventListener("load", () => {
+      const profiles = document.querySelector(".profiles");
+      if(profiles){
+        profiles.scrollLeft = (profiles.scrollWidth - profiles.clientWidth) / 2;
+      }
+    });
+  </script>
 </body>
 </html>
