@@ -4,6 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>2 Lost Revengers</title>
+
+  <!-- Favicon Logo -->
+  <link rel="icon" type="image/jpeg" href="https://i.pinimg.com/736x/12/22/f3/1222f361eb1c618ca42ea35af996bc42.jpg" />
+
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -109,10 +113,10 @@
       margin-top: 3rem;
       width: 100%;
       display: flex;
-      justify-content: center; /* default di tengah */
+      justify-content: center;
       gap: 1.5rem;
       padding: 1rem;
-      overflow-x: auto; /* bisa geser kiri kanan */
+      overflow-x: auto;
       scroll-snap-type: x mandatory;
     }
     .profile-card {
@@ -123,7 +127,7 @@
       padding: 1.2rem;
       text-align: center;
       box-shadow: 0 6px 15px rgba(0,0,0,0.2);
-      scroll-snap-align: center; /* snap ke tengah */
+      scroll-snap-align: center;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
     .profile-card:hover {
@@ -195,7 +199,6 @@
       </div>
     </section>
 
-    <!-- NEW PROFILES SCROLL -->
     <section class="profiles">
       <div class="profile-card">
         <img src="https://i.pinimg.com/736x/38/e8/71/38e871cc6512f3b6287931a2e82b858b.jpg" alt="0kkDer">
@@ -228,7 +231,7 @@
     // Auto scroll ke tengah pas load
     window.addEventListener("load", () => {
       const profiles = document.querySelector(".profiles");
-      if(profiles){
+      if (profiles) {
         profiles.scrollLeft = (profiles.scrollWidth - profiles.clientWidth) / 2;
       }
     });
