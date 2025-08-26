@@ -1,261 +1,226 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>2LR Forum</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
-    <style>
-        /* Basic Reset and Global Styles */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>2 Lost Revengers</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #121212;
+      color: #eee;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+    }
 
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: #121212;
-            color: #eee;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
+    /* HEADER */
+    header {
+      text-align: center;
+      padding: 3rem 1rem 2rem;
+      background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+      box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
+      animation: slideDown 1s ease forwards;
+    }
+    header h1 {
+      font-weight: 600;
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+      opacity: 0;
+      animation: fadeInUp 1s ease forwards;
+      animation-delay: .3s;
+    }
+    header p {
+      font-weight: 300;
+      font-size: 1.2rem;
+      color: #d1d1d1;
+      max-width: 400px;
+      margin: 0 auto;
+      opacity: 0;
+      animation: fadeInUp 1s ease forwards;
+      animation-delay: .6s;
+    }
 
-        /* Header Styles */
-        header {
-            text-align: center;
-            padding: 3rem 1rem 2rem;
-            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
-            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
-            animation: fadeInDown 1s ease forwards; /* Animation for header */
-        }
+    /* MAIN */
+    main {
+      flex: 1;
+      padding: 2rem 1rem 4rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
 
-        header h1 {
-            font-weight: 600;
-            font-size: 3rem;
-            margin-bottom: 0.5rem;
-            opacity: 0; /* Start hidden */
-            animation: fadeIn 1s ease forwards; /* Animation for h1 */
-            animation-delay: 0.3s; /* Delay for effect */
-        }
+    .intro {
+      text-align: center;
+      margin-bottom: 3rem;
+      opacity: 0;
+      animation: fadeInUp 1s ease forwards;
+      animation-delay: 1s;
+    }
+    .intro h2 { font-size: 2.5rem; margin-bottom: 1rem; }
+    .intro p { font-size: 1.1rem; max-width: 800px; margin: 0 auto; }
 
-        header p {
-            font-weight: 300;
-            font-size: 1.2rem;
-            color: #d1d1d1;
-            max-width: 400px;
-            margin: 0 auto;
-            opacity: 0; /* Start hidden */
-            animation: fadeIn 1s ease forwards; /* Animation for paragraph */
-            animation-delay: 0.6s; /* Delay for effect */
-        }
+    /* PROJECTS */
+    .projects {
+      margin-bottom: 3rem;
+      opacity: 0;
+      animation: fadeInUp 1s ease forwards;
+      animation-delay: 1.3s;
+    }
+    .projects h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+    }
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+    .project-card {
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      padding: 1.5rem;
+      text-align: center;
+      text-decoration: none;
+      color: inherit;
+      transform: translateY(30px);
+      opacity: 0;
+      animation: fadeInUp 0.8s ease forwards;
+    }
+    .project-card:nth-child(1) { animation-delay: 1.6s; }
+    .project-card:nth-child(2) { animation-delay: 1.8s; }
+    .project-card:nth-child(3) { animation-delay: 2s; }
+    .project-card:nth-child(4) { animation-delay: 2.2s; }
+    .project-card:hover {
+      transform: translateY(-10px) scale(1.05);
+      transition: transform 0.3s ease;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+    }
+    .project-card h3 { font-size: 1.5rem; margin-bottom: 1rem; color: black; }
+    .project-card p { font-size: 1rem; color: black; }
 
-        /* Main Content Styles */
-        main {
-            flex: 1;
-            padding: 2rem 1rem 4rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+    /* PROFILES SCROLL */
+    .profiles {
+      margin-top: 3rem;
+      width: 100%;
+      overflow-x: auto;
+      display: flex;
+      gap: 1.5rem;
+      padding: 1rem;
+      scroll-snap-type: x mandatory;
+    }
+    .profile-card {
+      flex: 0 0 auto;
+      width: 220px;
+      background: white;
+      border-radius: 15px;
+      padding: 1.2rem;
+      text-align: center;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+      scroll-snap-align: start;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .profile-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    }
+    .profile-card img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      margin-bottom: 1rem;
+      border: 3px solid #6a11cb;
+    }
+    .profile-card h3 { font-size: 1.3rem; margin-bottom: 0.3rem; color: black; }
+    .profile-card p { font-size: 1rem; color: #444; }
 
-        .social-container {
-            display: flex;
-            gap: 2.5rem;
-            flex-wrap: wrap;
-            justify-content: center;
-            max-width: 650px;
-            margin-bottom: 3rem;
-        }
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: #222;
+      color: #aaa;
+      font-size: 0.9rem;
+      width: 100%;
+    }
 
-        .social-card {
-            background: #1e1e1e;
-            border-radius: 12px;
-            width: 120px;
-            height: 120px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-decoration: none;
-            color: #eee;
-            box-shadow: 0 8px 16px rgba(37, 117, 252, 0.5);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            opacity: 0; /* Start hidden */
-            transform: translateY(20px); /* Start slightly below */
-        }
-
-        .social-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 12px 24px rgba(101, 67, 255, 0.8);
-        }
-
-        .social-card svg {
-            width: 50px; /* Adjusted width */
-            height: 50px; /* Adjusted height */
-            margin-bottom: 10px;
-            fill: #6a11cb;
-            transition: fill 0.3s ease;
-        }
-
-        .social-card:hover svg {
-            fill: #2575fc;
-        }
-
-        .profile-section {
-            text-align: center;
-            margin-top: 2rem;
-            display: flex;
-            justify-content: center;
-            gap: 2rem; /* Space between profiles */
-        }
-
-        .profile {
-            opacity: 0; /* Start hidden */
-            transform: translateY(20px); /* Start slightly below */
-            animation: fadeInUp 1s ease forwards; /* Animation for profile section */
-            animation-delay: 0.8s; /* Delay for effect */
-        }
-
-        .profile img {
-            border-radius: 50%;
-            width: 150px;
-            height: 150px;
-            object-fit: cover;
-            margin-bottom: 1rem;
-        }
-
-        .profile h2 {
-            font-weight: 600;
-            font-size: 1.5rem;
-            color: #eee;
-        }
-
-        .profile p {
-            font-weight: 300;
-            font-size: 1rem;
-            color: #d1d1d1;
-        }
-
-        /* Footer Styles */
-        footer {
-            text-align: center;
-            padding: 1rem;
-            background: #222;
-            color: #aaa;
-            font-size: 0.9rem;
-        }
-
-        /* Animations */
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeIn {
-            to {
-                opacity: 1;
-            }
-        }
-
-        @media (max-width: 480px) {
-            header h1 {
-                font-size: 2.2rem;
-            }
-            header p {
-                font-size: 1rem;
-            }
-            .social-card {
-                width: 100px;
-                height: 100px;
-            }
-            .social-card svg {
-                width: 36px;
-                height: 36px;
-            }
-            .profile {
-                flex-direction: column; /* Stack profiles on smaller screens */
-                align-items: center;
-            }
-        }
-    </style>
+    /* ANIMATIONS */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes slideDown {
+      from { opacity: 0; transform: translateY(-40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>2LR Forum</h1>
-        <p>The greatest creator that we work for.</p>
-    </header>
-    <main>
-        <div class="social-container" aria-label="Social Media Links">
-            <a href="https://www.youtube.com/@0kkDer" target="_blank" rel="noopener noreferrer" class="social-card" aria-label="YouTube">
-                <svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>YouTube</title><path d="M23.498 6.186a2.972 2.972 0 0 0-2.092-2.105C19.664 3.6 12 3.6 12 3.6s-7.665 0-9.406.482A2.973 2.973 0 0 0 .506 6.186a31.197 31.197 0 0 0-.506 5.753 31.2 31.2 0 0 0 .506 5.753 2.973 2.973 0 0 0 2.089 2.106c1.743.48 9.405.48 9.405.48s7.665 0 9.406-.48a2.973 2.973 0 0 0 2.092-2.106 31.2 31.2 0 0 0 .506-5.753 31.197 31.197 0 0 0-.506-5.753zM9.75 15.5v-7l6 3.5-6 3.5z"/></svg>
-                <span>YouTube</span>
-            </a>
-            <a href="https://www.instagram.com/radennkda/" target="_blank" rel="noopener noreferrer" class="social-card" aria-label="Instagram">
-                <svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>Instagram</title><path d="M7.75 2A5.75 5.75 0 0 0 2 7.75v8.5A5.75 5.75 0 0 0 7.75 22h8.5A5.75 5.75 0 0 0 22 16.25v-8.5A5.75 5.75 0 0 0 16.25 2h-8.5zm0 2h8.5A3.75 3.75 0 0 1 20 7.75v8.5a3.75 3.75 0 0 1-3.75 3.75h-8.5A3.75 3.75 0 0 1 4 16.25v-8.5A3.75 3.75 0 0 1 7.75 4zm4.25 3a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 2a3 3 0 1 1 0 6 3 3 0 0 1 0-6zm4.5-.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/></svg>
-                <span>Instagram</span>
-            </a>
-            <a href="https://discord.gg/v275wcfdsp" target="_blank" rel="noopener noreferrer" class="social-card" aria-label="Discord">
-                <svg role="img" xmlns="https://cdn.discordapp.com/avatars/698594147619307535/afa2f3a98a170aa12eb8539e6fe7e835?size=1024" viewBox="0 0 24 24"><title>Discord</title><path d="M20.317 4.3698a19.7913 19.7913 0 0 0-4.8851-1.5152.0741.0741 0 0 0-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 0 0-.0785-.037 19.7363 19.7363 0 0 0-4.8852 1.515.0699.0699 0 0 0-.0321.0277C2.5336 9.0458 1.873 13.5799 2.298 18.0578a.0824.0824 0 0 0 .0312.0561 19.9 19.9 0 0 0 5.9937 3.0341.0777.0777 0 0 0 .0842-.0276c.4626-.6304.8731-1.2952 1.226-1.9942a.076.076 0 0 0-.0416-.1057 13.0426 13.0426 0 0 1-1.872-.8997.077.077 0 0 1-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 0 1 .0786-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 0 1 .0814.0095c.1192.099.246.1981.372.2924a.0766.0766 0 0 1-.0064.1276 12.84 12.84 0 0 1-1.873.8998.0766.0766 0 0 0-.0407.106c.3604.698.7709 1.3628 1.225 1.9932a.076.076 0 0 0 .0842.028 19.8768 19.8768 0 0 0 6.001-3.037.0822.0822 0 0 0 .0305-.0559c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 0 0-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189Zm7.9748 0c-1.1824 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9544-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z"/></svg>
-                <span>Discord</span>
-            </a>
-            <a href="https://www.tiktok.com/@0kkder?_t=ZS-8xwv4Ul6qeH&_r=1" target="_blank" rel="noopener noreferrer" class="social-card" aria-label="TikTok">
-                <svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>TikTok</title><path d="M9.5 2v5.5a4.5 4.5 0 0 0 4.5 4.5V7.5a9 9 0 0 1-4.5-5.5zM12 12a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 2a3 3 0 1 1 0 6 3 3 0 0 1 0-6zm15 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/></svg>
-                <span>TikTok</span>
-            </a>
-            <a href="https://saweria.co/0kkder" target="_blank" rel="noopener noreferrer" class="social-card" aria-label="Saweria">
-                <svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>Saweria</title><circle cx="12" cy="12" r="10" fill="#6a11cb"/><text x="12" y="16" font-size="10" fill="#fff" text-anchor="middle" font-family="Poppins, sans-serif" font-weight="600">S</text></svg>
-                <span>Saweria</span>
-            </a>
-        </div>
+  <header>
+    <h1>2 Lost Revengers</h1>
+    <p>The greatest creator we work for.</p>
+  </header>
 
-        <div class="profile-section">
-            <div class="profile">
-                <img src="https://i.pinimg.com/736x/38/e8/71/38e871cc6512f3b6287931a2e82b858b.jpg" alt="the Developer">
-                <h2>0kkDer</h2>
-                <p>Head Developer</p>
-            </div>
-            <div class="profile">
-                <img src="https://i.pinimg.com/736x/b2/a1/35/b2a1350cfb9c91b669da94de705005f6.jpg" alt="the Tester">
-                <h2>Ibam</h2>
-                <p>Developer</p>
-            </div>
-        </div>
-    </main>
-    <footer>
-        &copy; 2025 0kkDer. All rights reserved.
-    </footer>
-    <script>
-        // Simple staggered animation on page load for each social card
-        window.addEventListener('DOMContentLoaded', () => {
-            const cards = document.querySelectorAll('.social-card');
-            cards.forEach((card, index) => {
-                setTimeout(() => {
-                    card.style.opacity = '1';
-                    card.style.transform = 'translateY(0)';
-                }, 150 * index); // Faster staggered delay based on index
-            });
-        });
-    </script>
+  <main>
+    <section class="intro">
+      <h2>About Me</h2>
+      <p>We are making something more interesting in Roblox 2 Lost Revengers Community, we prefer to explore inside this Roblox game. If you want to talk about something, you can contact us at the bottom.</p>
+    </section>
+
+    <section class="projects">
+      <h2>My Projects</h2>
+      <div class="project-grid">
+        <a href="https://www.youtube.com/@0kkDer" target="_blank" class="project-card">
+          <h3>YouTube</h3>
+          <p>Our YouTube channel featuring exciting content.</p>
+        </a>
+        <a href="https://www.instagram.com/radennkda/" target="_blank" class="project-card">
+          <h3>Instagram</h3>
+          <p>Our Instagram presence with updates and photos.</p>
+        </a>
+        <a href="https://discord.gg/v275wcfdsp" target="_blank" class="project-card">
+          <h3>Discord Server</h3>
+          <p>Join our Discord server for community engagement.</p>
+        </a>
+        <a href="https://www.tiktok.com/@0kkder?_t=ZS-8xwv4Ul6qeH&_r=1" target="_blank" class="project-card">
+          <h3>TikTok</h3>
+          <p>Fun videos and content on our TikTok account.</p>
+        </a>
+      </div>
+    </section>
+
+    <!-- NEW PROFILES SCROLL -->
+    <section class="profiles">
+      <div class="profile-card">
+        <img src="https://i.pinimg.com/736x/38/e8/71/38e871cc6512f3b6287931a2e82b858b.jpg" alt="0kkDer">
+        <h3>0kkDer</h3>
+        <p>Founder</p>
+      </div>
+      <div class="profile-card">
+        <img src="https://cdn.discordapp.com/avatars/1362503448313991229/07c82f522d491bda277fcb000a338fc5?size=1024" alt="Member 1">
+        <h3>Vnce</h3>
+        <p>Head Developer</p>
+      </div>
+      <div class="profile-card">
+        <img src="https://cdn.discordapp.com/avatars/841338526124605510/7f41ae0d50bc43f4665d0edee32ebf7d?size=1024" alt="Member 2">
+        <h3>Bedulskyy</h3>
+        <p>Developer</p>
+      </div>
+      <div class="profile-card">
+        <img src="https://cdn.discordapp.com/avatars/1137756843532365956/a_756a3080f94cff7fc17cf4c0af91282a?size=1024" alt="Member 3">
+        <h3>Ibamw</h3>
+        <p>Developer</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 2 Lost Revengers. All rights reserved.
+  </footer>
 </body>
 </html>
-
-
