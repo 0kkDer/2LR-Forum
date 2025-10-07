@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="2 Lost Revengers Roblox community - About us, what we do, PC specs, and contact info." />
   <title>2 Lost Revengers</title>
 
   <!-- Favicon Logo -->
@@ -57,83 +58,77 @@
       align-items: center;
     }
 
-    .intro {
-      text-align: center;
+    .section {
+      width: 100%;
+      max-width: 1200px;
       margin-bottom: 3rem;
       opacity: 0;
       animation: fadeInUp 1s ease forwards;
-      animation-delay: 1s;
     }
-    .intro h2 { font-size: 2.5rem; margin-bottom: 1rem; }
-    .intro p { font-size: 1.1rem; max-width: 800px; margin: 0 auto; }
-
-    /* PROJECTS */
-    .projects {
-      margin-bottom: 3rem;
-      opacity: 0;
-      animation: fadeInUp 1s ease forwards;
-      animation-delay: 1.3s;
-    }
-    .projects h2 {
+    .section:nth-child(1) { animation-delay: 1s; }
+    .section:nth-child(2) { animation-delay: 1.3s; }
+    .section:nth-child(3) { animation-delay: 1.6s; }
+    .section:nth-child(4) { animation-delay: 1.9s; }
+    .section:nth-child(5) { animation-delay: 2.2s; }
+    .section h2 {
       text-align: center;
       font-size: 2.5rem;
       margin-bottom: 2rem;
+      color: #fff;
     }
-    .project-grid {
+
+    .intro {
+      text-align: center;
+    }
+    .intro p { font-size: 1.1rem; max-width: 800px; margin: 0 auto; line-height: 1.6; }
+
+    /* WHAT WE DO: FLEXBOX FOR CENTERING 3 CARDS */
+    .what-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center; /* Ini bikin cards centered perfectly */
+      gap: 2rem;
+      max-width: 900px; /* Limit width biar gak terlalu lebar, centered di container */
+      margin: 0 auto;
+    }
+    .what-grid .card {
+      flex: 0 1 250px; /* Min 250px, grow if space, no shrink */
+      max-width: 300px; /* Cap biar gak terlalu gede */
+    }
+
+    /* TEAM: TETEP GRID (4 CARDS, EVEN) */
+    .team-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
       gap: 2rem;
+      justify-content: center; /* Center kalau ada space extra */
     }
-    .project-card {
+    @media (min-width: 768px) {
+      .team-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* COMMON CARD STYLES */
+    .card, .profile-card {
       background: white;
       border-radius: 15px;
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
       padding: 1.5rem;
       text-align: center;
-      text-decoration: none;
-      color: inherit;
       transform: translateY(30px);
       opacity: 0;
       animation: fadeInUp 0.8s ease forwards;
     }
-    .project-card:nth-child(1) { animation-delay: 1.6s; }
-    .project-card:nth-child(2) { animation-delay: 1.8s; }
-    .project-card:nth-child(3) { animation-delay: 2s; }
-    .project-card:nth-child(4) { animation-delay: 2.2s; }
-    .project-card:hover {
+    .card:nth-child(1), .profile-card:nth-child(1) { animation-delay: 0.2s; }
+    .card:nth-child(2), .profile-card:nth-child(2) { animation-delay: 0.4s; }
+    .card:nth-child(3), .profile-card:nth-child(3) { animation-delay: 0.6s; }
+    .card:nth-child(4), .profile-card:nth-child(4) { animation-delay: 0.8s; }
+    .card:hover, .profile-card:hover {
       transform: translateY(-10px) scale(1.05);
       transition: transform 0.3s ease;
       box-shadow: 0 12px 30px rgba(0,0,0,0.3);
     }
-    .project-card h3 { font-size: 1.5rem; margin-bottom: 1rem; color: black; }
-    .project-card p { font-size: 1rem; color: black; }
-
-    /* PROFILES SCROLL */
-    .profiles {
-      margin-top: 3rem;
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-      padding: 1rem;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-    }
-    .profile-card {
-      flex: 0 0 auto;
-      width: 220px;
-      background: white;
-      border-radius: 15px;
-      padding: 1.2rem;
-      text-align: center;
-      box-shadow: 0 6px 15px rgba(0,0,0,0.2);
-      scroll-snap-align: center;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .profile-card:hover {
-      transform: scale(1.05);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-    }
+    .card h3, .profile-card h3 { font-size: 1.5rem; margin-bottom: 1rem; color: black; }
+    .card p, .profile-card p { font-size: 1rem; color: black; line-height: 1.5; }
     .profile-card img {
       width: 120px;
       height: 120px;
@@ -141,17 +136,130 @@
       margin-bottom: 1rem;
       border: 3px solid #6a11cb;
     }
-    .profile-card h3 { font-size: 1.3rem; margin-bottom: 0.3rem; color: black; }
-    .profile-card p { font-size: 1rem; color: #444; }
+    .profile-card p { color: #444; font-size: 1.1rem; }
+
+    /* PC SPECS */
+    .specs-list {
+      background: white;
+      border-radius: 15px;
+      padding: 2rem;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .specs-list ul {
+      list-style: none;
+      text-align: left;
+    }
+    .specs-list li {
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #eee;
+      color: black;
+      font-size: 1.1rem;
+    }
+    .specs-list li:last-child { border-bottom: none; }
+
+    /* CONTACT */
+    .contact-form {
+      background: white;
+      border-radius: 15px;
+      padding: 2rem;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .contact-form input, .contact-form textarea {
+      width: 100%;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-family: inherit;
+      color: black;
+    }
+    .contact-form button {
+      width: 100%;
+      padding: 1rem;
+      background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: opacity 0.3s;
+    }
+    .contact-form button:hover { opacity: 0.9; }
+    .contact-links {
+      text-align: center;
+      margin-top: 1rem;
+    }
+    .contact-links a {
+      display: inline-block;
+      margin: 0 0.5rem 1rem 0.5rem; /* Tambah margin-bottom biar jarak sama p */
+      padding: 0.5rem 1rem;
+      background: #6a11cb;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-size: 0.9rem;
+    }
+    .contact-links p {
+      margin-top: 0.5rem; /* Tambah margin-top biar p turun dikit dari a */
+      font-size: 0.9rem;
+      color: #666;
+    }
 
     /* FOOTER */
     footer {
-      text-align: center;
-      padding: 1rem;
       background: #222;
       color: #aaa;
+      padding: 2rem 1rem 1rem;
+      text-align: center;
+    }
+    .social-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .social-btn {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.8rem 1.2rem;
+      background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+      color: white;
+      text-decoration: none;
+      border-radius: 25px;
       font-size: 0.9rem;
-      width: 100%;
+      font-weight: 600;
+      transition: transform 0.3s, box-shadow 0.3s;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+    .social-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+    }
+    /* Untuk icons: Tambah <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"> di head, lalu ganti ::before dengan i-tag di HTML. Skip dulu biar simple. */
+    .quick-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .quick-links a {
+      color: #aaa;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.3s;
+    }
+    .quick-links a:hover { color: #fff; }
+    .copyright {
+      font-size: 0.8rem;
+      border-top: 1px solid #333;
+      padding-top: 1rem;
+      color: #666;
     }
 
     /* ANIMATIONS */
@@ -163,6 +271,16 @@
       from { opacity: 0; transform: translateY(-40px); }
       to { opacity: 1; transform: translateY(0); }
     }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .social-buttons, .quick-links { flex-direction: column; align-items: center; gap: 0.5rem; }
+      header h1 { font-size: 2.5rem; }
+      .section h2 { font-size: 2rem; }
+      .what-grid { flex-direction: column; align-items: center; } /* Stack vertically di mobile */
+      .team-grid { grid-template-columns: 1fr; }
+      .contact-links a { margin: 0 0 0.5rem 0; } /* Adjust margin di mobile */
+    }
   </style>
 </head>
 <body>
@@ -172,71 +290,92 @@
   </header>
 
   <main>
-    <section class="intro">
-      <h2>About Me</h2>
-      <p>We are making something more interesting in Roblox 2 Lost Revengers Community, we prefer to explore inside this Roblox game. If you want to talk about something, you can contact us at the bottom.</p>
+    <section class="section intro">
+      <h2>About 2LR</h2>
+      <p>We are the 2 Lost Revengers community, dedicated to creating exciting experiences in Roblox. We love exploring the game, building cool stuff, and connecting with fellow gamers. Join us for adventures, tips, and fun!</p>
     </section>
 
-    <section class="projects">
-      <h2>My Social Media</h2>
-      <div class="project-grid">
-        <a href="https://www.youtube.com/@0kkDer" target="_blank" class="project-card">
-          <h3>YouTube</h3>
-          <p>YouTube channel featuring exciting content.</p>
-        </a>
-        <a href="https://www.instagram.com/radennkda/" target="_blank" class="project-card">
-          <h3>Instagram</h3>
-          <p>Instagram presence with updates and photos.</p>
-        </a>
-        <a href="https://discord.gg/y2E2WGQz2D" target="_blank" class="project-card">
-          <h3>Discord Server</h3>
-          <p>Join our Discord server for community engagement.</p>
-        </a>
-        <a href="https://www.tiktok.com/@0kkder?_t=ZS-8xwv4Ul6qeH&_r=1" target="_blank" class="project-card">
-          <h3>TikTok</h3>
-          <p>Fun videos and content on our TikTok account.</p>
-        </a>
+    <section class="section">
+      <h2>What We Do</h2>
+      <div class="what-grid">
+        <div class="card">
+          <h3>Live Streaming</h3>
+          <p>We're doing Live on YouTube but sometimes, playing Roblox and sharing real-time tips, challenges, and community events.</p>
+        </div>
+        <div class="card">
+          <h3>Gaming Guides</h3>
+          <p>Detailed guides and tutorials for Roblox games, helping you level up, find secrets, and master mechanics in 2 Lost Revengers.</p>
+        </div>
+        <div class="card">
+          <h3>Content to YouTube</h3>
+          <p>All our videos, highlights, and exclusive content are posted on our YouTube channel – subscribe for the latest updates!</p>
+        </div>
       </div>
     </section>
 
-    <section class="profiles">
-      <div class="profile-card">
-        <img src="https://i.pinimg.com/736x/38/e8/71/38e871cc6512f3b6287931a2e82b858b.jpg" alt="0kkDer">
-        <h3>0kkDer</h3>
-        <p>Founder</p>
+    <section class="section">
+      <h2>PC Gaming Specs</h2>
+      <div class="specs-list">
+        <ul>
+          <li><strong>CPU:</strong> Intel Core i5-12400F</li>
+          <li><strong>GPU:</strong> NVIDIA RTX 3050</li>
+          <li><strong>RAM:</strong> 16GB DDR4</li>
+          <li><strong>Storage:</strong> 256GB TEAM TM8FP6512G SSD</li>
+          <li><strong>Motherboard:</strong> ASRock B660M Pro RS</li>
+          <li><strong>Monitor:</strong> 23" 1080p 144Hz</li>
+          <li><strong>OS:</strong> Windows 11 Pro</li>
+        </ul>
+        <p style="text-align: center; margin-top: 1rem; color: black; font-style: italic;">Built for smooth Roblox gaming and streaming!</p>
       </div>
-      <div class="profile-card">
-        <img src="https://cdn.discordapp.com/avatars/1362503448313991229/1ba5478e31620d6bd47ced5e048a1fce?size=1024" alt="Member 1">
-        <h3>Vnce</h3>
-        <p>Head Developer</p>
+    </section>
+
+    <section class="section">
+      <h2>Our Team</h2>
+      <div class="team-grid">
+        <div class="profile-card">
+          <img src="https://instagram.fcgk29-1.fna.fbcdn.net/v/t51.2885-19/557637090_18376613695181647_6088905275111846803_n.jpg?stp=dst-jpg_s150x150_tt6&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLmRqYW5nby4xMDgwLmMyIn0&_nc_ht=instagram.fcgk29-1.fna.fbcdn.net&_nc_cat=107&_nc_oc=Q6cZ2QHaXr3uoPQ7IDTo74z_AmR-R8bAP8Z9tCgVJ8C16xRWapeN5s7zT6Xk0vMm1BnvuXU&_nc_ohc=DMor5hkTQOYQ7kNvwFE8hFL&_nc_gid=aMcgfSR565LAr0z6mdhMZw&edm=AP4sbd4BAAAA&ccb=7-5&oh=00_Afcp-e5a3bIjL_aIkJDQdh-bcMH3ovK0ksdZH2017ztRmg&oe=68EAE75E&_nc_sid=7a9f4b" alt="Profile photo of 0kkDer, founder of 2 Lost Revengers">
+          <h3>0kkDer</h3>
+          <p>Founder</p>
+        </div>
+        <div class="profile-card">
+          <img src="https://cdn.discordapp.com/avatars/1362503448313991229/1ba5478e31620d6bd47ced5e048a1fce?size=1024" alt="Profile photo of Vnce, Head Developer of 2 Lost Revengers">
+          <h3>Vnce</h3>
+          <p>Head Developer</p>
+        </div>
+        <div class="profile-card">
+          <img src="https://cdn.discordapp.com/avatars/841338526124605510/7f41ae0d50bc43f4665d0edee32ebf7d?size=1024" alt="Profile photo of Bedulskyy, Developer of 2 Lost Revengers">
+          <h3>Bedulskyy</h3>
+          <p>Developer</p>
+        </div>
+        <div class="profile-card">
+          <img src="https://cdn.discordapp.com/avatars/1137756843532365956/a_756a3080f94cff7fc17cf4c0af91282a?size=1024" alt="Profile photo of Ibamw, Developer of 2 Lost Revengers">
+          <h3>Ibamw</h3>
+          <p>Developer</p>
+        </div>
       </div>
-      <div class="profile-card">
-        <img src="https://cdn.discordapp.com/avatars/841338526124605510/7f41ae0d50bc43f4665d0edee32ebf7d?size=1024" alt="Member 2">
-        <h3>Bedulskyy</h3>
-        <p>Developer</p>
-      </div>
-      <div class="profile-card">
-        <img src="https://cdn.discordapp.com/avatars/1137756843532365956/a_756a3080f94cff7fc17cf4c0af91282a?size=1024" alt="Member 3">
-        <h3>Ibamw</h3>
-        <p>Developer</p>
+    </section>
+
+    <section class="section">
+      <h2>Contact Us</h2>
+      <form class="contact-form" action="mailto:your.email@example.com" method="post" enctype="text/plain">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+      <div class="contact-links">
+        <a href="mailto:your.email@example.com">Email Us</a>
+        <p>Or reach out via social media below!</p>
       </div>
     </section>
   </main>
 
   <footer>
-    &copy; 2025 2 Lost Revengers. All rights reserved.
-  </footer>
-
-  <script>
-    // Auto scroll ke tengah pas load
-    window.addEventListener("load", () => {
-      const profiles = document.querySelector(".profiles");
-      if (profiles) {
-        profiles.scrollLeft = (profiles.scrollWidth - profiles.clientWidth) / 2;
-      }
-    });
-  </script>
-</body>
-</html>
-
-
+    <div class="social-buttons">
+      <a href="https://www.youtube.com/@0kkDer" target="_blank" class="social-btn">YouTube</a>
+      <a href="https://www.instagram.com/whoskrysz" target="_blank" class="social-btn">Instagram</a>
+      <a href="https://www.tiktok.com/@0kkder" target="_blank" class="social-btn">TikTok</a>
+      <a href="https://discord.gg/y2E2WGQz2D" target="_blank" class="social-btn">Discord</a>
+    </div>
+    <div class="quick-links">
+      <a href="#about">About 2LR</a
